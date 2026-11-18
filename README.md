@@ -47,16 +47,24 @@ The system was benchmarked using Locust with **50 concurrent virtual users** exe
 
 ## Setup & Run
 
-1. Clone repository and set up virtual environment:
+1. **Clone repository and set up virtual environment:**
+   ```bash
    python -m venv venv
-   source venv/bin/activate # On Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
+   ```
 
-2. Export and quantize ONNX model:
+2. **Export and quantize ONNX model:**
+   ```bash
    python scripts/export_onnx.py
+   ```
 
-3. Launch the API server:
+3. **Launch the API server:**
+   ```bash
    uvicorn app.main:app --host 0.0.0.0 --port 8000
+   ```
 
-4. Run the Locust load benchmark:
+4. **Run the Locust load benchmark:**
+   ```bash
    locust -f scripts/benchmark_locust.py --host http://127.0.0.1:8000
+   ```
